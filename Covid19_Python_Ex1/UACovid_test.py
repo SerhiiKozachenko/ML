@@ -20,13 +20,13 @@ n.process()
 #n.print_area_stats(area='Харківська',last_30_days=True)
 
 # Draw charts
-n.draw_charts_for_area(area='Харківська',last_30_days=True)
+#n.draw_charts_for_area(area='Харківська',last_30_days=True)
 
-# Draw charts for multiple states - comparison for last 30 days
-# n.plot_multi_state(states=['California', 'Michigan', 'Georgia','Illinois'],
+# Draw charts for multiple areas
+# n.draw_charts_for_multi_areas(areas=['Харківська','Дніпропетровська','м. Київ', 'Київська', 'Чернівецька'],
 #                   last_30_days=True)
 
 
-#n.rankState(N=6)
+n.rank_area(N=6)
 
 #n.rankState(N=4,daterank='2020-03-26')

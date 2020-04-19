@@ -203,48 +203,50 @@ class UACovid:
       plt.xticks(rotation=45,fontsize=14)
       plt.show()
       
-  def plot_multi_state(self, 
-                        states = ['California','Michigan','New York'],
+  def draw_charts_for_multi_areas(self, 
+                        areas = ['Харківська','Дніпропетровська','м. Київ'],
                         last_30_days=False):
       """
       Plots multiple states data in a single plot for comparison
       """
-      states = states
       plt.figure(figsize=(14,4))
+      # TODO: Refactor
       if last_30_days:
           plt.title("Cumulative cases, for last 30 days",fontsize=18)
           colors=[]
-          for s in states:
+          for a in areas:
               color = tuple(np.round(np.random.random(3),2))
               colors.append(color)
-              plt.plot(self.statedict[s]['date'][-31:-1],
-                      self.statedict[s]['cases'][-31:-1],
+              df = self.area_dict[a]
+              plt.plot(df['zvit_date'].tail(31),
+                       df['confirmed'].tail(31),
                       color=color,
                       linewidth=2)
               plt.xticks(rotation=45,fontsize=14)
-          plt.legend(states,fontsize=14)
+          plt.legend(areas,fontsize=14)
           plt.show()
       else:
           plt.title("Cumulative cases",fontsize=18)
           colors=[]
-          for s in states:
+          for a in areas:
               color = tuple(np.round(np.random.random(3),2))
               colors.append(color)
-              plt.plot(self.statedict[s]['date'],
-                      self.statedict[s]['cases'],
-                      color=color,
-                      linewidth=2)
+              df = self.area_dict[a]
+              plt.plot(df['zvit_date'],
+                       df['confirmed'],
+                       color=color,
+                       linewidth=2)
               plt.xticks(rotation=45,fontsize=14)
-          plt.legend(states,fontsize=14)
+          plt.legend(areas,fontsize=14)
           plt.show()
   
-  def rankState(self,
+  def rank_area(self,
                 N=5,
                 daterank=None):
       """
-      Ranks the states in a bar chart
+      Ranks the areas in a bar chart
       Arguments:
-          N: Top N states to be ranked
+          N: Top N areas to be ranked
           date: Date at which the ranking is done. 
                 Must be a string in the form '2020-3-27'
       """
@@ -256,18 +258,18 @@ class UACovid:
       newdeaths = {}
 
       if daterank==None:
-          d = self.statedf.iloc[-1]['date'].date()
+          d = self.last_update_date.date()
       else:
           d = datetime.datetime.strptime(daterank,'%Y-%m-%d').date()
 
-      for s in self.statedict:
-          df=self.statedict[s]
+      for a in self.area_dict:
+          df=self.area_dict[a]
           for i in range(len(df)):
-              if df['date'].iloc[i].date()==d:
-                  cases[s]=df.iloc[i]['cases']
-                  deaths[s]=df.iloc[i]['deaths']
-                  newcases[s]=df.iloc[i]['newcases']
-                  newdeaths[s]=df.iloc[i]['newdeaths']
+              if df['zvit_date'].iloc[i].date()==d:
+                  cases[a]=df.iloc[i]['confirmed']
+                  deaths[a]=df.iloc[i]['deaths']
+                  newcases[a]=df.iloc[i]['new_confirmed']
+                  newdeaths[a]=df.iloc[i]['new_deaths']
 
       sorted_cases = sorted(((value, key) for (key,value) in cases.items()),reverse=True)
       sorted_cases = sorted_cases[:N]
