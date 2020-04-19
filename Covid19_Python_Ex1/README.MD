@@ -1,6 +1,8 @@
 # Covid 19 Data analysis using example
 
+https://towardsdatascience.com/analyze-ny-times-covid-19-dataset-86c802164210
 https://github.com/tirthajyoti/Covid-19-analysis/blob/master/Notebook/NYTCovid.py
+https://github.com/tirthajyoti/Covid-19-analysis/blob/master/Notebook/NYTCovid-test.ipynb
 
 ### Setup Locally
 
@@ -25,6 +27,10 @@ https://www.datacamp.com/community/tutorials/pandas-tutorial-dataframe-python
 https://www.shanelynn.ie/summarising-aggregation-and-grouping-data-in-python-pandas/
 
 2. NumPy
+
+3. Python Data structures
+
+https://docs.python.org/3/tutorial/datastructures.html
 
 
 ### UA Covid

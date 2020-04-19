@@ -16,6 +16,7 @@ import datetime
 class UACovid:
   def __init__(self):
     self.df = None
+    self.last_update_date = None
     self.totals = {
       'suspected': 0,
       'confirmed': 0,
@@ -25,6 +26,7 @@ class UACovid:
     }
     self.area_list = None
     self.area_dict = {}
+
     self.daily_df = None
     self.loaded = False
     self.processed = False
@@ -37,10 +39,12 @@ class UACovid:
     # parse CSV into pandas data frame
     self.df = pd.read_csv(io.StringIO(s.decode('utf-8')))
     # convert each row.date string to datetime obj
-    self.df['zvit_date'] =  pd.to_datetime(self.df['zvit_date'], format='%Y-%m-%d')
+    #self.df['zvit_date'] =  pd.to_datetime(self.df['zvit_date'], format='%Y-%m-%d')
+    
+    # save last update date, assumes data is sorted by zvit_date desc
+    self.last_update_date = pd.to_datetime(self.df.iloc[0]['zvit_date'], format='%Y-%m-%d')
+    print("Data loaded, last update:", self.last_update_date.date())
     self.loaded = True
-    # print last update date
-    print("Data loaded, last update:", self.df.iloc[0]['zvit_date'].date())
   
   def print_top_5_rows(self):
     if self.loaded:
@@ -63,9 +67,23 @@ class UACovid:
   #   if self.processed:
   #     print(self.daily_df.loc[[area]])
 
-  def print_area_stats(self, area = 'Харківська'):
+  def print_area_stats(self,
+                       area = 'Харківська',
+                       last_30_days = True):
     if self.processed:
-      print(self.area_dict[area])
+      if last_30_days:
+        print(self.area_dict[area])
+      else:
+        print(self.area_dict[area])
+
+  # def get_cumulative_totals(df):
+  #   totals = {}
+  #   totals['suspected'] = self.df['new_susp'].sum()
+  #   totals['confirmed'] = self.df['new_confirm'].sum()
+  #   # doesn't look right - 49920, probably it's accumulated value
+  #   totals['sick'] = self.df['active_confirm'].sum()
+  #   totals['deaths'] = self.df['new_death'].sum()
+  #   totals['recoveries'] = self.df['new_recover'].sum()
   
   def process(self):
     pd.set_option('mode.chained_assignment', None)
@@ -74,13 +92,23 @@ class UACovid:
     print("Processing...")
     t1 = time.time()
     if self.loaded:
+      # TODO: Optimize by using for loop 1 traverse
+      #for index, row in self.df.iterrows():
+        #print(row['c1'], row['c2'])
+        # totals
+
       # calc totals
       self.totals['suspected'] = self.df['new_susp'].sum()
       self.totals['confirmed'] = self.df['new_confirm'].sum()
-      # doesn't look right - 49920, probably it's accumulated value
-      #self.totals['sick'] = self.df['active_confirm'].sum()
+      # get the last date and sum all active confirm
+      self.totals['sick'] = self.df[self.df['zvit_date'] == str(self.last_update_date.date())]['active_confirm'].sum()
       self.totals['deaths'] = self.df['new_death'].sum()
       self.totals['recoveries'] = self.df['new_recover'].sum()
+
+      print("totals", self.totals)
+
+      # print("top 5 sorted by active_confirm")
+      # print(self.df.sort_values(by='active_confirm', ascending=False).head())
 
       # calc daily_stats
       self.daily_df = self.df.groupby('zvit_date').agg(
@@ -96,19 +124,25 @@ class UACovid:
       self.area_list = list(self.df['registration_area'].unique())
       # go through each unique area
       for area in self.area_list:
-        # pandas dataframe
-        # self.statedf['state']==s returns the matrix of rows indexes with bool values
-        # which is then used to filter out rows from the data frame
-        # state_df will contain only the rows where row.state == s - current state
-        area_df = self.df[self.df['registration_area'] == area]
-        # save it in dictionary per state as a key
+        area_df = self.df[self.df['registration_area'] == area].groupby('zvit_date').agg(
+          new_suspected = ('new_susp', sum),
+          new_confirmed = ('new_confirm', sum),
+          sick = ('active_confirm', sum),
+          new_deaths = ('new_death', sum),
+          new_recoveries = ('new_recover', sum),
+        ).reset_index()
+        area_df['suspected'] = area_df['new_suspected'].cumsum()
+        area_df['confirmed'] = area_df['new_confirmed'].cumsum()
+        area_df['deaths'] = area_df['new_deaths'].cumsum()
+        area_df['recoveries'] = area_df['new_recoveries'].cumsum()
+        # save it in dictionary per area as a key
         self.area_dict[area] = area_df
     self.processed = True
     t2 = time.time()
     delt = round(t2-t1,3)
     print("Finished. Took {} seconds".format(delt))
   
-  ## TODO: FINISH
+
   def plot_state(self,
                   area='Харківська',
                   last_30_days=False):

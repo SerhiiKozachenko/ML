@@ -11,11 +11,11 @@ n.load()
 n.process()
 
 # Print top 5 rows
-n.print_top_5_rows()
+#n.print_top_5_rows()
 
-n.print_totals()
+#n.print_totals()
 
-n.print_date_stats()
+#n.print_date_stats()
 
 n.print_area_stats()
 
