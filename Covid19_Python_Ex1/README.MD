@@ -45,3 +45,4 @@ The dashboard can be found on https://nszu.gov.ua/covid/dashboard.
 ![New cases 1](./images/UACovid/Figure_3.png "New cases 1")
 ![New deaths 1](./images/UACovid/Figure_4.png "New deaths 1")
 ![Cumulative cases multi areas](./images/UACovid/Figure_5.png "Cumulative cases multi areas")
+![Cumulative cases rank multi areas](./images/UACovid/Figure_6.png "Cumulative cases rank multi areas")
