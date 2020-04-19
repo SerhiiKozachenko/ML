@@ -19,5 +19,15 @@ https://github.com/tirthajyoti/Covid-19-analysis/blob/master/Notebook/NYTCovid.p
 
 ### Dependencies
 
-1. Pandas - https://www.datacamp.com/community/tutorials/pandas-tutorial-dataframe-python
+1. Pandas
+
+https://www.datacamp.com/community/tutorials/pandas-tutorial-dataframe-python
+https://www.shanelynn.ie/summarising-aggregation-and-grouping-data-in-python-pandas/
+
 2. NumPy
+
+
+### UA Covid
+
+This is my implementation of the data analysis for Ukraine, data taken from https://github.com/VasiaPiven/covid19_ua.
+The dashboard can be found on https://nszu.gov.ua/covid/dashboard.

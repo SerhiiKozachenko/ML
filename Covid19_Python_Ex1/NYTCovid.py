@@ -74,7 +74,6 @@ class NYTCovid:
             self.statelist = list(self.statedf['state'].unique())
             # go through each unique state
             for s in self.statelist:
-
                 # pandas dataframe
                 # self.statedf['state']==s returns the matrix of rows indexes with bool values
                 # which is then used to filter out rows from the data frame
