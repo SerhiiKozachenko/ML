@@ -37,12 +37,10 @@ class UACovid:
     # download csv data
     s=requests.get(url).content
     # parse CSV into pandas data frame
-    self.df = pd.read_csv(io.StringIO(s.decode('utf-8')))
-    # convert each row.date string to datetime obj
-    #self.df['zvit_date'] =  pd.to_datetime(self.df['zvit_date'], format='%Y-%m-%d')
+    self.df = pd.read_csv(io.StringIO(s.decode('utf-8')), parse_dates=['zvit_date'])
     
     # save last update date, assumes data is sorted by zvit_date desc
-    self.last_update_date = pd.to_datetime(self.df.iloc[0]['zvit_date'], format='%Y-%m-%d')
+    self.last_update_date =self.df.iloc[0]['zvit_date']
     print("Data loaded, last update:", self.last_update_date.date())
     self.loaded = True
   
@@ -62,17 +60,13 @@ class UACovid:
     if self.processed:
       print(self.daily_df.loc[date])
 
-  # doesn't work using area_dict
-  # def print_date_and_area_stats(self, date = '2020-04-15', area = 'Харківська'):
-  #   if self.processed:
-  #     print(self.daily_df.loc[[area]])
-
   def print_area_stats(self,
                        area = 'Харківська',
                        last_30_days = True):
     if self.processed:
       if last_30_days:
-        print(self.area_dict[area])
+        # take last 31 rows from end
+        print(self.area_dict[area].tail(31))
       else:
         print(self.area_dict[area])
 
@@ -87,8 +81,6 @@ class UACovid:
   
   def process(self):
     pd.set_option('mode.chained_assignment', None)
-    self.statedict= {}
-    self.countydict= {}
     print("Processing...")
     t1 = time.time()
     if self.loaded:
@@ -141,40 +133,39 @@ class UACovid:
     t2 = time.time()
     delt = round(t2-t1,3)
     print("Finished. Took {} seconds".format(delt))
-  
 
-  def plot_state(self,
+  def draw_charts_for_area(self,
                   area='Харківська',
                   last_30_days=False):
       """
-      Plots statewise data
+      Draws charts for specific area
       """
       if self.processed==False:
-        print("Data not processed yet. Cannot plot statewise.")
+        print("Data not processed yet. Cannot draw.")
         return None
       
-      s = str(area)
-      assert s in self.area_list,"Input does not appear in the list of areas. Possibly wrong name/spelling"
-      df = self.area_dict[s]
-      
-      dates = df['zvit_date']
-      cases = df['cases']
-      deaths = df['deaths']
-      newcases = df['newcases']
-      newdeaths = df['newdeaths']
+      a = str(area)
+      assert a in self.area_list,"Input does not appear in the list of areas. Possibly wrong name/spelling"
+      df = self.area_dict[a]
       
       if last_30_days:
-          dates = df['date'][-31:-1]
-          cases = df['cases'][-31:-1]
-          deaths = df['deaths'][-31:-1]
-          newcases = df['newcases'][-31:-1]
-          newdeaths = df['newdeaths'][-31:-1]
+          dates = df['zvit_date'].tail(31)
+          cases = df['confirmed'].tail(31)
+          deaths = df['deaths'].tail(31)
+          newcases = df['new_confirmed'].tail(31)
+          newdeaths = df['new_deaths'].tail(31)
+      else:
+          dates = df['zvit_date']
+          cases = df['confirmed']
+          deaths = df['deaths']
+          newcases = df['new_confirmed']
+          newdeaths = df['new_deaths']
       
       plt.figure(figsize=(14,4))
       if last_30_days:
-          plt.title("Cumulative cases in {}, for last 30 days".format(s),fontsize=18)
+          plt.title("Cumulative cases in {}, for last 30 days".format(area),fontsize=18)
       else:
-          plt.title("Cumulative cases in {}".format(s),fontsize=18)
+          plt.title("Cumulative cases in {}".format(area),fontsize=18)
       plt.bar(x=dates,height=cases,color='blue',edgecolor='k')
       plt.xticks(rotation=45,fontsize=14)
       plt.show()
@@ -183,9 +174,9 @@ class UACovid:
       
       plt.figure(figsize=(14,4))
       if last_30_days:
-          plt.title("Cumulative deaths in {}, for last 30 days".format(s),fontsize=18)
+          plt.title("Cumulative deaths in {}, for last 30 days".format(area),fontsize=18)
       else:
-          plt.title("Cumulative deaths in {}".format(s),fontsize=18)
+          plt.title("Cumulative deaths in {}".format(area),fontsize=18)
       plt.bar(x=dates,height=deaths,color='red',edgecolor='k')
       plt.xticks(rotation=45,fontsize=14)
       plt.show()
@@ -194,9 +185,9 @@ class UACovid:
       
       plt.figure(figsize=(14,4))
       if last_30_days:
-          plt.title("New cases in {}, for last 30 days".format(s),fontsize=18)
+          plt.title("New cases in {}, for last 30 days".format(area),fontsize=18)
       else:
-          plt.title("New cases in {}".format(s),fontsize=18)
+          plt.title("New cases in {}".format(area),fontsize=18)
       plt.bar(x=dates,height=newcases,color='yellow',edgecolor='k')
       plt.xticks(rotation=45,fontsize=14)
       plt.show()
@@ -205,9 +196,9 @@ class UACovid:
       
       plt.figure(figsize=(14,4))
       if last_30_days:
-          plt.title("New deaths in {}, for last 30 days".format(s),fontsize=18)
+          plt.title("New deaths in {}, for last 30 days".format(area),fontsize=18)
       else:
-          plt.title("New deaths in {}".format(s),fontsize=18)
+          plt.title("New deaths in {}".format(area),fontsize=18)
       plt.bar(x=dates,height=newdeaths,color='orange',edgecolor='k')
       plt.xticks(rotation=45,fontsize=14)
       plt.show()

@@ -17,10 +17,10 @@ n.process()
 
 #n.print_date_stats()
 
-n.print_area_stats()
+#n.print_area_stats(area='Харківська',last_30_days=True)
 
-# Draw charts for Californina last 30 days
-#n.plot_state(state='California',last_30_days=True)
+# Draw charts
+n.draw_charts_for_area(area='Харківська',last_30_days=True)
 
 # Draw charts for multiple states - comparison for last 30 days
 # n.plot_multi_state(states=['California', 'Michigan', 'Georgia','Illinois'],

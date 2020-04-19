@@ -37,3 +37,10 @@ https://docs.python.org/3/tutorial/datastructures.html
 
 This is my implementation of the data analysis for Ukraine, data taken from https://github.com/VasiaPiven/covid19_ua.
 The dashboard can be found on https://nszu.gov.ua/covid/dashboard.
+
+### Results
+
+![Cumulative cases 1](./images/UACovid/Figure_1.png "Cumulative cases 1")
+![Cumulative deaths 1](./images/UACovid/Figure_2.png "Cumulative deaths 1")
+![New cases 1](./images/UACovid/Figure_3.png "New cases 1")
+![New deaths 1](./images/UACovid/Figure_4.png "New deaths 1")
