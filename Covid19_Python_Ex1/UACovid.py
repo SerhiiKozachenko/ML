@@ -303,3 +303,4 @@ class UACovid:
       axs[3].set_title("New deaths on {}".format(str(d)),
                       fontsize=15)
       plt.show()
+      
