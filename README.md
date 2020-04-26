@@ -5,7 +5,8 @@ Data, Artificial Intelligence, Machine Learning, Analysis.
 
 ## Content List
 
-- [Analysis of Covid-19 Data Sets](https://github.com/Grievoushead/ML/tree/master/Covid19_Python_Ex1) 🦠
+- [Analysis of Covid-19 Data Sets](https://github.com/Grievoushead/ML/tree/master/Covid19/Stats) 🦠
+- [India Covid19 Dashboard](https://github.com/Grievoushead/ML/tree/master/Covid19/Dashboard/covid19india-react-master)
 - [TensorflowJS Image Recognition](https://github.com/Grievoushead/ML/tree/master/tsjs-image-class)
 - [Curated List of Handpicked Articles](https://github.com/Grievoushead/ML/tree/master#handpicked-articles) 👓
 
