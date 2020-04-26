@@ -13,3 +13,4 @@ Data, Artificial Intelligence, Machine Learning, Analysis.
 
 - [Analyze NY Times Covid-19 Dataset](https://towardsdatascience.com/analyze-ny-times-covid-19-dataset-86c802164210)
 - [Нейронные сети для начинающих](https://habr.com/ru/post/312450/)
+- [Develop an Interactive Drawing Recognition App based on CNN](https://towardsdatascience.com/develop-an-interactive-drawing-recognition-app-based-on-cnn-deploy-it-with-flask-95a805de10c0)
