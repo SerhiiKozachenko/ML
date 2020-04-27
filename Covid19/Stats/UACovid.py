@@ -1,4 +1,5 @@
-
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 # UACovid class definition
 # Implemented by example of NYTCovid.py by Dr. Tirthajyoti Sarkar, Fremont, CA
 # Sergey Kozachenko
