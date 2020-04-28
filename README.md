@@ -6,8 +6,10 @@ Data, Artificial Intelligence, Machine Learning, Analysis.
 ## Content List
 
 - [Analysis of Covid-19 Data Sets](https://github.com/Grievoushead/ML/tree/master/Covid19/Stats) 🦠
+- [Price Prediction with LSTM Model](https://github.com/Grievoushead/ML/tree/master/Finance/PricePrediction)
+- [Crypto Trading Bot](https://github.com/Grievoushead/ML/tree/master/Finance/TradingBot)
 - [India Covid19 Dashboard](https://github.com/Grievoushead/ML/tree/master/Covid19/Dashboard/covid19india-react-master)
-- [TensorflowJS Image Recognition](https://github.com/Grievoushead/ML/tree/master/tsjs-image-class)
+- [TensorflowJS Image Recognition](https://github.com/Grievoushead/ML/tree/master/Image/tsjs-image-class)
 - [Curated List of Handpicked Articles](https://github.com/Grievoushead/ML/tree/master#handpicked-articles) 👓
 
 ## Handpicked Articles

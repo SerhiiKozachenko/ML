@@ -1,0 +1,2 @@
+SYMBOL = "AAPL"
+TICKERS = "Q.AAPL"
