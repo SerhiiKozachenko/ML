@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Todo: Built something similar to TradingView but really simple
+
+
+
 ## Available Scripts
 
 In the project directory, you can run:
