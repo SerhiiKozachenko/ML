@@ -92,7 +92,7 @@ function MyChart(props) {
   // TODO: -150 - pull the history data?
   const start = xAccessor(last(data));
   // the window is at most 150 records
-  const e = (data.length - 150) > 0 ? (data.length - 150) : data.length;
+  const e = (data.length - 150) > 0 ? (data.length - 150) : data.length - data.length;
   const end = xAccessor(data[Math.max(0, e)]);
 
   if (props.realData.length < 3) {
