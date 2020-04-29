@@ -4,6 +4,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 [TradingView]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
 
+## Use TradingView Embedded Widgets
+
+https://www.tradingview.com/widget/advanced-chart/
+
+https://www.tradingview.com/widget/#AvailableMarketsForWidgets
+
 ## Available Scripts
 
 In the project directory, you can run:

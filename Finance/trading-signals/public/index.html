@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="Watch trading signals 🚦, charts 📊, analytics ☕️."
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
@@ -24,20 +24,425 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+    <style type="text/css">
+      body {
+        padding: 0 40px;
+      }
+
+      .row {
+        text-align: center;
+      }
+
+      .tradingview-widget-container {
+        display: inline-block;
+        padding: 0 20px;
+      }
+    </style>
+    <title>Trading Signals 🚦</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+    <div class="row">
+      <!-- USD-UAH -->
+      <div class="tradingview-widget-container inline">
+        <div class="tradingview-widget-container__widget"></div>
+        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/FX_IDC-USDUAH/" rel="noopener" target="_blank"><span class="blue-text">USDUAH Rates</span></a> by TradingView</div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+        {
+          "symbol": "FX_IDC:USDUAH",
+          "width": 350,
+          "height": 220,
+          "locale": "en",
+          "dateRange": "1m",
+          "colorTheme": "light",
+          "trendLineColor": "#37a6ef",
+          "underLineColor": "#e3f2fd",
+          "isTransparent": false,
+          "autosize": false,
+          "largeChartUrl": ""
+        }
+        </script>
+      </div>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+      <!-- EUR-UAH -->
+      <div class="tradingview-widget-container inline">
+        <div class="tradingview-widget-container__widget"></div>
+        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/FX_IDC-EURUAH/" rel="noopener" target="_blank"><span class="blue-text">EURUAH Rates</span></a> by TradingView</div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+        {
+          "symbol": "FX_IDC:EURUAH",
+          "width": 350,
+          "height": 220,
+          "locale": "en",
+          "dateRange": "1m",
+          "colorTheme": "light",
+          "trendLineColor": "#37a6ef",
+          "underLineColor": "#E3F2FD",
+          "isTransparent": false,
+          "autosize": false,
+          "largeChartUrl": ""
+        }
+        </script>
+      </div>
+
+      <!-- UAH-PLN -->
+      <div class="tradingview-widget-container inline">
+        <div class="tradingview-widget-container__widget"></div>
+        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/FX_IDC-UAHPLX/" rel="noopener" target="_blank"><span class="blue-text">UAHPLX Rates</span></a> by TradingView</div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+        {
+          "symbol": "FX_IDC:UAHPLX",
+          "width": 350,
+          "height": 220,
+          "locale": "en",
+          "dateRange": "3m",
+          "colorTheme": "light",
+          "trendLineColor": "#37a6ef",
+          "underLineColor": "#E3F2FD",
+          "isTransparent": false,
+          "autosize": false,
+          "largeChartUrl": ""
+        }
+        </script>
+      </div>
+
+      <!-- USD-RUB -->
+      <div class="tradingview-widget-container inline">
+        <div class="tradingview-widget-container__widget"></div>
+        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/FOREXCOM-USDRUB/" rel="noopener" target="_blank"><span class="blue-text">USDRUB Rates</span></a> by TradingView</div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+        {
+          "symbol": "FOREXCOM:USDRUB",
+          "width": 350,
+          "height": 220,
+          "locale": "en",
+          "dateRange": "3m",
+          "colorTheme": "light",
+          "trendLineColor": "#37a6ef",
+          "underLineColor": "#E3F2FD",
+          "isTransparent": false,
+          "autosize": false,
+          "largeChartUrl": ""
+        }
+        </script>
+      </div>
+
+      <!-- BTC-USD -->
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/BITBAY-BTCUSD/" rel="noopener" target="_blank"><span class="blue-text">BTCUSD Rates</span></a> by TradingView</div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+        {
+          "symbol": "BITBAY:BTCUSD",
+          "width": 350,
+          "height": 220,
+          "locale": "en",
+          "dateRange": "3m",
+          "colorTheme": "light",
+          "trendLineColor": "#37a6ef",
+          "underLineColor": "#E3F2FD",
+          "isTransparent": false,
+          "autosize": false,
+          "largeChartUrl": ""
+        }
+        </script>
+      </div>
+
+      <!-- ETH-USD -->
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/KRAKEN-ETHUSD/" rel="noopener" target="_blank"><span class="blue-text">ETHUSD Rates</span></a> by TradingView</div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+        {
+          "symbol": "KRAKEN:ETHUSD",
+          "width": 350,
+          "height": 220,
+          "locale": "en",
+          "dateRange": "3m",
+          "colorTheme": "light",
+          "trendLineColor": "#37a6ef",
+          "underLineColor": "#E3F2FD",
+          "isTransparent": false,
+          "autosize": false,
+          "largeChartUrl": ""
+        }
+        </script>
+      </div>
+
+      <!-- XRP-USD -->
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/BITFINEX-XRPUSD/" rel="noopener" target="_blank"><span class="blue-text">XRPUSD Rates</span></a> by TradingView</div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+        {
+          "symbol": "BITFINEX:XRPUSD",
+          "width": 350,
+          "height": 220,
+          "locale": "en",
+          "dateRange": "3m",
+          "colorTheme": "light",
+          "trendLineColor": "#37a6ef",
+          "underLineColor": "#E3F2FD",
+          "isTransparent": false,
+          "autosize": false,
+          "largeChartUrl": ""
+        }
+        </script>
+      </div>
+
+      <!-- Tech USD-UAH -->
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/FX_IDC-USDUAH/technicals/" rel="noopener" target="_blank"><span class="blue-text">Technical Analysis for USDUAH</span></a> by TradingView</div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+        {
+          "interval": "1D",
+          "width": 425,
+          "isTransparent": false,
+          "height": 450,
+          "symbol": "FX_IDC:USDUAH",
+          "showIntervalTabs": true,
+          "locale": "en",
+          "colorTheme": "light"
+        }
+        </script>
+      </div>
+
+      <!-- Tech EUR-UAH -->
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/FX_IDC-EURUAH/technicals/" rel="noopener" target="_blank"><span class="blue-text">Technical Analysis for EURUAH</span></a> by TradingView</div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+        {
+          "interval": "1D",
+          "width": 425,
+          "isTransparent": false,
+          "height": 450,
+          "symbol": "FX_IDC:EURUAH",
+          "showIntervalTabs": true,
+          "locale": "en",
+          "colorTheme": "light"
+        }
+        </script>
+      </div>
+
+      <!-- Tech BTC-USD -->
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/BYBIT-BTCUSD/technicals/" rel="noopener" target="_blank"><span class="blue-text">Technical Analysis for BTCUSD</span></a> by TradingView</div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+        {
+          "interval": "1W",
+          "width": 425,
+          "isTransparent": false,
+          "height": 450,
+          "symbol": "BYBIT:BTCUSD",
+          "showIntervalTabs": true,
+          "locale": "en",
+          "colorTheme": "light"
+        }
+        </script>
+      </div>
+
+      <!-- Tech ETH-USD -->
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/BYBIT-ETHUSD/technicals/" rel="noopener" target="_blank"><span class="blue-text">Technical Analysis for ETHUSD</span></a> by TradingView</div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+        {
+          "interval": "1W",
+          "width": 425,
+          "isTransparent": false,
+          "height": 450,
+          "symbol": "BYBIT:ETHUSD",
+          "showIntervalTabs": true,
+          "locale": "en",
+          "colorTheme": "light"
+        }
+        </script>
+      </div>
+
+      <!-- Tech XRP-USD -->
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/BITFINEX-XRPUSD/technicals/" rel="noopener" target="_blank"><span class="blue-text">Technical Analysis for XRPUSD</span></a> by TradingView</div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+        {
+          "interval": "1W",
+          "width": 425,
+          "isTransparent": false,
+          "height": 450,
+          "symbol": "BITFINEX:XRPUSD",
+          "showIntervalTabs": true,
+          "locale": "en",
+          "colorTheme": "light"
+        }
+        </script>
+      </div>
+
+      <br />
+
+      <!-- Economic Events -->
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/markets/currencies/economic-calendar/" rel="noopener" target="_blank"><span class="blue-text">Economic Calendar</span></a> by TradingView</div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
+        {
+          "colorTheme": "light",
+          "isTransparent": false,
+          "width": "510",
+          "height": "600",
+          "locale": "en",
+          "importanceFilter": "-1,0,1",
+          "currencyFilter": "UAK"
+        }
+        </script>
+      </div>
+
+      <!-- All Overview -->
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/markets/indices/" rel="noopener" target="_blank"><span class="blue-text">All</span></a> by TradingView</div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+        {
+          "colorTheme": "light",
+          "dateRange": "3m",
+          "showChart": true,
+          "locale": "en",
+          "largeChartUrl": "",
+          "isTransparent": false,
+          "width": "400",
+          "height": "660",
+          "plotLineColorGrowing": "rgba(33, 150, 243, 1)",
+          "plotLineColorFalling": "rgba(33, 150, 243, 1)",
+          "gridLineColor": "rgba(255, 0, 0, 1)",
+          "scaleFontColor": "rgba(120, 123, 134, 1)",
+          "belowLineFillColorGrowing": "rgba(33, 150, 243, 0.12)",
+          "belowLineFillColorFalling": "rgba(33, 150, 243, 0.12)",
+          "symbolActiveColor": "rgba(33, 150, 243, 0.12)",
+          "tabs": [
+            {
+              "title": "All",
+              "symbols": [
+                {
+                  "s": "FX_IDC:USDUAH",
+                  "d": "USD/UAH"
+                },
+                {
+                  "s": "FX_IDC:EURUAH",
+                  "d": "EUR/UAH"
+                },
+                {
+                  "s": "FX_IDC:UAHPLX",
+                  "d": "UAH/PLN"
+                },
+                {
+                  "s": "FOREXCOM:USDRUB",
+                  "d": "USD/RUB"
+                },
+                {
+                  "s": "BYBIT:BTCUSD",
+                  "d": "BTC/USD"
+                },
+                {
+                  "s": "COINBASE:ETHUSD",
+                  "d": "ETH/USD"
+                },
+                {
+                  "s": "BYBIT:XRPUSD",
+                  "d": "XRP/USD"
+                }
+              ],
+              "originalTitle": "Indices"
+            }
+          ]
+        }
+        </script>
+      </div>
+
+      <br />
+
+      <!-- Crypto Overview -->
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/markets/cryptocurrencies/prices-all/" rel="noopener" target="_blank"><span class="blue-text">Cryptocurrency Markets</span></a> by TradingView</div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
+        {
+          "width": 1000,
+          "height": 490,
+          "defaultColumn": "overview",
+          "screener_type": "crypto_mkt",
+          "displayCurrency": "USD",
+          "colorTheme": "light",
+          "locale": "en"
+        }
+        </script>
+      </div>
+
+      <!-- Crypto Signals -->
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/markets/cryptocurrencies/prices-all/" rel="noopener" target="_blank"><span class="blue-text">Cryptocurrency Markets</span></a> by TradingView</div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
+        {
+          "width": 1000,
+          "height": 490,
+          "defaultColumn": "moving_averages",
+          "screener_type": "crypto_mkt",
+          "displayCurrency": "USD",
+          "colorTheme": "light",
+          "locale": "en"
+        }
+        </script>
+      </div>
+
+      <br />
+
+      <!-- Realtime -->
+      <div class="tradingview-widget-container">
+        <div id="tradingview_d98d7"></div>
+        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/FX_IDC-USDUAH/" rel="noopener" target="_blank"><span class="blue-text">USDUAH Chart</span></a> by TradingView</div>
+        <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+        <script type="text/javascript">
+          new TradingView.widget({
+            "width": 980,
+            "height": 610,
+            "symbol": "FX_IDC:USDUAH",
+            "interval": "D",
+            "timezone": "Europe/Belgrade",
+            "theme": "light",
+            "style": "1",
+            "locale": "en",
+            "toolbar_bg": "#f1f3f6",
+            "enable_publishing": false,
+            "withdateranges": true,
+            "hide_side_toolbar": false,
+            "allow_symbol_change": true,
+            "watchlist": [
+              "FX_IDC:USDUAH",
+              "FX_IDC:EURUAH",
+              "BYBIT:BTCUSD",
+              "BYBIT:ETHUSD",
+              "BYBIT:XRPUSD"
+            ],
+            "details": true,
+            "hotlist": true,
+            "calendar": true,
+            "news": [
+              "stocktwits",
+              "headlines"
+            ],
+            "studies": [
+              "MAExp@tv-basicstudies"
+            ],
+            "container_id": "tradingview_d98d7"
+          });
+        </script>
+      </div>
+      <!-- ROW END-->
+    </div>
   </body>
 </html>
