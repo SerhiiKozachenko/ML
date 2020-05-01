@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Todo: Built something similar to TradingView but really simple
 
-[TradingView]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
+![TradingView screenshot](https://github.com/SergeyKozachenko/ML/blob/master/Finance/trading-signals/trading-signals.png)
 
 ## Use TradingView Embedded Widgets
 
